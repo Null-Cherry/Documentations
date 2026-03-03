@@ -68,9 +68,6 @@ groupbox:AddButton("TestButton", {
         print("Button clicked!")
     end
 })
-
--- Show the window
-window.Visible = true
 ```
 
 ---
