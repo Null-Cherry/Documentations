@@ -52,7 +52,7 @@ local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Null-Cher
 -- Create a window
 local window = lib:Window({
     Title = "My Script",
-    Icon = "rbxassetid://..."
+    Icon = "rbxassetid://..." -- or leave it empty / nil
 })
 
 -- Add a tab
@@ -328,7 +328,7 @@ local slider = groupbox:AddSlider("SpeedSlider", {
     Min = 16,
     Max = 50,
     Value = 16,
-    Format = ".1%",
+    Format = "%",
     Callback = function(value)
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
     end
@@ -587,7 +587,7 @@ Every option available during object creation can be dynamically accessed:
 slider.Min = 0
 slider.Max = 100
 slider.Value = 50
-slider.Format = ".%"
+slider.Format = "%"
 
 -- For a toggle
 toggle.Text = "New Label"
@@ -756,8 +756,8 @@ local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Null-Cher
 
 -- Create main window
 local window = lib:Window({
-    Title = "Game Utility Suite",
-    Icon = "Toolbox",
+    Title = "Game Utility Suite",,
+    Icon = "rbxassetid://..." -- or leave it empty / nil
     Theme = {
         Back = Color3.fromRGB(25, 25, 35),
         Main = Color3.fromRGB(100, 150, 255),
@@ -778,13 +778,7 @@ local movementGB = playerTab:AddLeftGroupbox("Movement", {
 })
 
 movementGB:AddToggle("SpeedEnabled", {
-    Text = "Enable Speed Boost",
-    Callback = function(state)
-        local character = game.Players.LocalPlayer.Character
-        if character and character:FindFirstChild("Humanoid") then
-            character.Humanoid.WalkSpeed = state and 50 or 16
-        end
-    end
+    Text = "Enable Speed Boost"
 })
 
 local speedSlider = movementGB:AddSlider("WalkSpeed", {
@@ -792,7 +786,7 @@ local speedSlider = movementGB:AddSlider("WalkSpeed", {
     Min = 16,
     Max = 100,
     Value = 16,
-    Format = ".%",
+    Format = "%",
     Callback = function(value)
         local character = game.Players.LocalPlayer.Character
         if character and character:FindFirstChild("Humanoid") then
@@ -801,8 +795,8 @@ local speedSlider = movementGB:AddSlider("WalkSpeed", {
     end
 })
 
--- Connect speed toggle to slider
-window.Objects.SpeedEnabled.Callback = function(state)
+-- Overwrite / connect speed toggle to slider
+window.PlayerTab.Movement.SpeedEnabled.Callback = function(state)
     speedSlider.Disabled = not state
     local character = game.Players.LocalPlayer.Character
     if character and character:FindFirstChild("Humanoid") then
