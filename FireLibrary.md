@@ -886,8 +886,7 @@ appearanceGB:AddDropdown("Language", {
     Values = {"English", "Spanish", "French"},
     Value = 1,
     Callback = function(selected)
-        local langs = { "EN", "ES", "FR" }
-        window.Language = langs[selected]
+        window.Language = selected
     end
 })
 
