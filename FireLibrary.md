@@ -6,6 +6,7 @@
 - [Quick Start](#quick-start)
 - [Core Concepts](#core-concepts)
 - [Window API](#window-api)
+  - [Floating label API](#floating-label-api)
 - [Tab API](#tab-api)
 - [Groupbox API](#groupbox-api)
 - [UI Objects](#ui-objects)
@@ -172,6 +173,40 @@ local title = window.Title
 ```
 
 ---
+
+## Floating label API
+Floating labels are used for displaying information. Creating:
+```lua
+local floatingLabel = window:FloatingLabel({ Title = "Floating label", Text = "Useful information" })
+```
+
+#### Options
+| Property | Type | Description |
+|---------|------|-------------|
+| `Title` | string | Label title |
+| `Text` | string | Label text |
+| `Visible` | boolean | Initial visibility state |
+| `Position` | UDim2 | Floating label position on screen |
+| `AnchorPoint` | Vector2 | Floating label anchor point on screen |
+
+### Floating label Methods
+| Method | Description |
+|--------|-------------|
+| `:Destroy()` | Destroys the floating label |
+| `:Refresh()` | Refreshes floating label |
+
+```lua
+local floatingLabel = window:FloatingLabel({ Title = "Floating label", Text = "Useful information" })
+
+-- later
+floatingLabel.Position = UDim2.fromOffset(10, 50)
+floatingLabel.Title = "" -- remove the title
+floatingLabel.Text = "New information"
+```
+
+### TIP: almost every text in the UI supports RichText, so you can use it in floating label also
+
+--- 
 
 ## Tab API
 
@@ -582,7 +617,7 @@ button.Disabled = true
 ```
 
 #### Supported Properties
-Every option available during object creation can be dynamically accessed:
+Every option available during object creation can be dynamically accessed and changed:
 ```lua
 -- For a slider
 slider.Min = 0
@@ -599,6 +634,8 @@ toggle.Disabled = false
 window.Title = "Updated Title"
 window.Theme.Main = Color3.fromRGB(0, 255, 0)
 ```
+
+### TIP: almost every text in the UI supports RichText, including the window Footer, Title, TextBox's PlaceholderText and etc.!
 
 ### Shortcuts
 
