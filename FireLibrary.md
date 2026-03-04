@@ -50,13 +50,14 @@ Fire Library is a powerful, modern UI library for Roblox that provides extensive
 local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Null-Cherry/Fire-Library/refs/heads/main/Loader.lua", true))()
 
 -- Create a window
-local window = lib:Window({
+local window = lib:Window("CoolExample", {
     Title = "My Script",
     Icon = "rbxassetid://..." -- or leave it empty / nil
 })
 
 -- Add a tab
-local tab = window:AddTab("MainTab", { Text = "Main" })
+local tab = window:AddTab("MainTab", { Text = "Main" }) -- also you can do `window:AddTab({ Text = "Main", Flag = "MainTab" })`. You can set flag in any object instead of first argument
+-- Flags are used for configs, so script will know what object is that
 
 -- Add a groupbox
 local groupbox = tab:AddGroupbox("MainGroup", { Text = "Controls" })
