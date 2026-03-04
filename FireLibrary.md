@@ -114,6 +114,8 @@ local window = lib:Window(options)
 | `Icon` | string/number | Window icon (rbxassetid or id) |
 | `Footer` | string | Footer text |
 | `Visible` | boolean | Initial visibility state |
+| `UserProfile` | boolean | Show user profile in the bottom-left |
+| `SubscriptionExpiry` | number/string | Shows under the user profile; if is number, shows when expires (tick) |
 | `Closed` | boolean | Whether window is closed |
 | `UnlockMouse` | boolean | Allow mouse movement outside UI |
 | `Keybind` | KeyCode | Toggle keybind |
