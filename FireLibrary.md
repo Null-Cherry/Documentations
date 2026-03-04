@@ -756,8 +756,8 @@ local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Null-Cher
 
 -- Create main window
 local window = lib:Window({
-    Title = "Game Utility Suite",,
-    Icon = "rbxassetid://..." -- or leave it empty / nil
+    Title = "Game Utility Suite",
+    Icon = "rbxassetid://...", -- or leave it empty / nil
     Theme = {
         Back = Color3.fromRGB(25, 25, 35),
         Main = Color3.fromRGB(100, 150, 255),
